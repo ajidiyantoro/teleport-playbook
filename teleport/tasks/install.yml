@@ -1,0 +1,19 @@
+---
+- name: Install Teleport
+  ansible.builtin.shell:
+    cmd: "./install"
+  args:
+    chdir: "{{ temp_dir }}/{{ teleport_pkg }}"
+
+- name: Generate Teleport Configuration
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/teleport.yaml.j2"
+    dest: /etc/teleport.yaml
+
+- name: Configure Teleport Service
+  ansible.builtin.copy:
+    src: "{{ temp_dir }}/{{ teleport_pkg }}/examples/systemd/teleport.service"
+    dest: "/lib/systemd/system/teleport.service"
+    mode: 0755
+    remote_src: yes
+  notify: Enable and Start Teleport Service

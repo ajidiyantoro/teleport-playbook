@@ -1,0 +1,6 @@
+- name: Install or Update Teleport
+  hosts:
+    - teleport
+  become: true
+  roles:
+    - teleport

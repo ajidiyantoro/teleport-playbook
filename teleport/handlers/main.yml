@@ -1,0 +1,11 @@
+---
+- name: Enable and Start Teleport Service
+  ansible.builtin.systemd:
+    name: teleport.service
+    state: started
+    enabled: yes
+
+- name: Restart Teleport Service
+  ansible.builtin.systemd:
+    name: teleport.service
+    state: restarted

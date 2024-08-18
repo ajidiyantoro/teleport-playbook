@@ -1,0 +1,11 @@
+---
+- name: Download Teleport Packages
+  ansible.builtin.get_url:
+    url: "{{ repository_url }}/{{ teleport_pkg }}-v{{ teleport_version }}-linux-{{ system_arch }}-bin.tar.gz"
+    dest: "{{ temp_dir }}"
+
+- name: Extract Teleport Packages
+  ansible.builtin.unarchive:
+    src: "{{ temp_dir }}/{{ teleport_pkg }}-v{{ teleport_version }}-linux-{{ system_arch }}-bin.tar.gz"
+    dest: "{{ temp_dir }}"
+    remote_src: yes

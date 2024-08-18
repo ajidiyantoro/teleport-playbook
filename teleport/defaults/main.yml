@@ -1,0 +1,22 @@
+---
+# Temp directory to store downloaded teleport archive
+temp_dir: /tmp
+
+# Variable used for "install" or "update" condition.
+# -> mode = "install" used for new deployment teleport and teleport_join_token variable must defined on every node.
+# -> mode = "update" used for update teleport to new version from existing deployment.
+mode: "install"
+
+# Teleport server must provide hostname and port.
+# Must define if you run new deployment.
+teleport_proxy_addr: teleport.example.com:443
+
+# This is optional when use public SSL like LetsEncrypt on Teleport Server.
+# If you use self-sign cert on Teleport Server, provide certificate authority on this variable.
+teleport_ca_pin: sha256:xxx
+
+# Teleport archive
+repository_url: https://cdn.teleport.dev
+teleport_pkg: teleport
+teleport_version: 16.1.4
+system_arch: amd64

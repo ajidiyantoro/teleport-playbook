@@ -1,0 +1,20 @@
+---
+- name: Download Teleport Archive
+  import_tasks: download.yml
+  when: not ansible_check_mode
+
+- name: Install Teleport
+  import_tasks: install.yml
+  when:
+    - mode == "install"
+    - not ansible_check_mode
+
+- name: Update Teleport
+  import_tasks: update.yml
+  when:
+    - mode == "update"
+    - not ansible_check_mode
+
+- name: Clean Installation Packages
+  import_tasks: clean.yml
+  when: not ansible_check_mode

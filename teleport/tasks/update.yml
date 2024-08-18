@@ -1,0 +1,6 @@
+- name: Update Teleport Binary
+  ansible.builtin.shell:
+    cmd: "cp -f teleport tctl tsh tbot /usr/local/bin"
+  args:
+    chdir: "{{ temp_dir }}/{{ teleport_pkg }}"
+  notify: Restart Teleport Service

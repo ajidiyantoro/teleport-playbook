@@ -1,0 +1,7 @@
+- name: Clean Installation Packages
+  ansible.builtin.file:
+    path: "/tmp/{{ item }}"
+    state: absent
+  with_items:
+    - "{{ teleport_pkg }}-v{{ teleport_version }}-linux-{{ system_arch }}-bin.tar.gz"
+    - "{{ teleport_pkg }}"
