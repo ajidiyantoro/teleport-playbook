@@ -1,0 +1,2 @@
+session optional pam_motd.so motd=/run/motd.dynamic
+session optional pam_permit.so

@@ -17,3 +17,13 @@
     mode: 0755
     remote_src: yes
   notify: Enable and Start Teleport Service
+
+- name: Configure MOTD
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/teleport"
+    dest: /etc/pam.d/teleport
+    mode: 0644
+    remote_src: yes
+  when:
+    - mode == "install"
+    - teleport_enable_pam == true
