@@ -10,14 +10,6 @@
     src: "{{ role_path }}/templates/teleport.yaml.j2"
     dest: /etc/teleport.yaml
 
-- name: Configure Teleport Service
-  ansible.builtin.copy:
-    src: "{{ temp_dir }}/{{ teleport_pkg }}/examples/systemd/teleport.service"
-    dest: "/lib/systemd/system/teleport.service"
-    mode: 0755
-    remote_src: yes
-  notify: Enable and Start Teleport Service
-
 - name: Configure MOTD
   ansible.builtin.copy:
     src: "{{ role_path }}/files/teleport"
@@ -26,3 +18,11 @@
     remote_src: yes
   when:
     - teleport_enable_pam == true
+
+- name: Configure Teleport Service
+  ansible.builtin.copy:
+    src: "{{ temp_dir }}/{{ teleport_pkg }}/examples/systemd/teleport.service"
+    dest: "/lib/systemd/system/teleport.service"
+    mode: 0755
+    remote_src: yes
+  notify: Enable and Start Teleport Service
