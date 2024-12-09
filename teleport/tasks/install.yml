@@ -16,8 +16,6 @@
     dest: /etc/pam.d/teleport
     mode: 0644
     remote_src: yes
-  when:
-    - teleport_enable_pam == true
 
 - name: Configure Teleport Service
   ansible.builtin.copy:
