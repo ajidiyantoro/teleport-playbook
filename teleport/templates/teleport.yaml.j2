@@ -17,6 +17,9 @@ auth_service:
   enabled: "no"
 ssh_service:
   enabled: "yes"
+  pam:
+    enabled: {{ teleport_enable_pam }}
+    service_name: {{ teleport_pam_service_name }}
   labels:
     org: labstack
     env: demo

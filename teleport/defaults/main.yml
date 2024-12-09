@@ -15,6 +15,10 @@ teleport_proxy_addr: teleport.example.com:443
 # If you use self-sign cert on Teleport Server, provide certificate authority on this variable.
 teleport_ca_pin: sha256:xxx
 
+# Teleport configuration to enable PAM
+teleport_enable_pam: true
+teleport_pam_service_name: teleport
+
 # Teleport archive
 repository_url: https://cdn.teleport.dev
 teleport_pkg: teleport
