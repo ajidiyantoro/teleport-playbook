@@ -25,5 +25,4 @@
     mode: 0644
     remote_src: yes
   when:
-    - mode == "install"
     - teleport_enable_pam == true
