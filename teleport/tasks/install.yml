@@ -15,7 +15,6 @@
     src: "{{ role_path }}/files/teleport"
     dest: /etc/pam.d/teleport
     mode: 0644
-    remote_src: yes
 
 - name: Configure Teleport Service
   ansible.builtin.copy:
