@@ -13,7 +13,7 @@
 - name: Configure MOTD
   ansible.builtin.copy:
     src: "{{ role_path }}/files/teleport"
-    dest: /etc/pam.d/teleport
+    dest: "/etc/pam.d/teleport"
     mode: 0644
 
 - name: Configure Teleport Service
